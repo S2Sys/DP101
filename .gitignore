@@ -1,0 +1,40 @@
+# Visual Studio and related
+.vs/
+.vscode/
+*.sln.iml
+*.user
+*.userprefs
+
+# Build results
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.nupkg
+
+# NuGet
+.nuget/
+packages/
+*.nuspec
+
+# ReSharper
+_ReSharper*/
+*.resharper
+*.resharper.user
+
+# Test Results
+TestResults/
+*.trx
+
+# macOS
+.DS_Store
+
+# Node (if used for docs)
+node_modules/
+
+# IDEs
+.idea/
+*.swp
+*.swo
+*~
