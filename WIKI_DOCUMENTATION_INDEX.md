@@ -203,15 +203,84 @@ All design patterns have been documented with extensive explanations, code examp
 
 ---
 
-## 🎯 BEHAVIORAL PATTERNS (Documented in code, wiki pending)
+## ✅ BEHAVIORAL PATTERNS (4 patterns - 2,000+ lines)
 
-### 10-13. **Behavioral Patterns** (4 patterns documented in implementation)
-- **Observer Pattern** - Reactive notifications, event handling
-- **Strategy Pattern** - Algorithm selection, runtime behavior
-- **State Pattern** - Behavior based on internal state
-- **Command Pattern** - Request encapsulation, undo/redo
+### 10. **Observer Pattern** `10-Observer.md`
+**Purpose:** Define a one-to-many dependency so that when one object changes state, all dependents are notified.
 
-*Comprehensive wiki documentation ready for creation*
+**Coverage:**
+- 5 implementation approaches:
+  - Simple Observer Pattern with Subject
+  - Stock Price Observer with portfolio holdings
+  - Weather Station with multiple displays
+  - .NET Events Pattern (C# native)
+  - Property Change Notifier
+- Real-world examples:
+  - GUI event handling
+  - Data binding in UI frameworks
+  - MVC pattern notifications
+- Observer vs. Pub-Sub comparison
+- Memory leak prevention
+- Exception handling in notifications
+
+**Key Takeaway:** Loose coupling through automatic notifications when state changes.
+
+---
+
+### 11. **Strategy Pattern** `11-Strategy.md`
+**Purpose:** Define a family of algorithms, encapsulate each one, and make them interchangeable.
+
+**Coverage:**
+- 4 algorithm family examples:
+  - Payment processing strategies (Credit Card, PayPal, Crypto)
+  - Sorting algorithms (Bubble, Quick, Merge)
+  - Compression strategies (GZIP, RAR, ZIP)
+  - Formatting strategies (Case, Reverse)
+- Runtime algorithm selection
+- Eliminates complex conditional logic
+- Strategy vs. State pattern comparison
+- Real-world use cases
+
+**Key Takeaway:** Select algorithm at runtime without modifying client code.
+
+---
+
+### 12. **State Pattern** `12-State.md`
+**Purpose:** Allow an object to alter its behavior when its internal state changes.
+
+**Coverage:**
+- 5 state machine examples:
+  - Traffic light (Red, Yellow, Green)
+  - TCP connection states (Closed, Established, Listen)
+  - Media player (Playing, Paused, Stopped)
+  - Order processing (New, Validated, Processing, Shipped)
+  - Document workflow (Draft, Review, Published, Archived)
+- State-dependent behavior encapsulation
+- Eliminates massive if-else chains
+- Explicit state transitions
+- State vs. Strategy pattern comparison
+
+**Key Takeaway:** Encapsulate state-dependent behavior in separate state classes.
+
+---
+
+### 13. **Command Pattern** `13-Command.md`
+**Purpose:** Encapsulate a request as an object, allowing parameterization with different requests.
+
+**Coverage:**
+- 6 implementation approaches:
+  - Light control with undo/redo
+  - Document editor with full history
+  - Database transactions with rollback
+  - Macro/batch command composition
+  - Command queue for deferred execution
+  - Async command execution
+- Undo/redo functionality
+- Command queuing and logging
+- Transaction support with rollback
+- Macro command composition
+
+**Key Takeaway:** Decouple sender from receiver through command objects.
 
 ---
 
@@ -247,9 +316,10 @@ All design patterns have been documented with extensive explanations, code examp
 ## 📊 Documentation Statistics
 
 ### Lines of Documentation
-- **Total Wiki Content:** 13,000+ lines
+- **Total Wiki Content:** 15,000+ lines
 - **Creational Patterns:** 5,000+ lines (5 patterns)
 - **Structural Patterns:** 4,000+ lines (4 patterns)
+- **Behavioral Patterns:** 2,000+ lines (4 patterns)
 - **Architectural Patterns:** 4,000+ lines (SAGA + others)
 
 ### Coverage per Pattern
@@ -417,7 +487,13 @@ docs/wiki/
 
 ## 🏆 Summary
 
-This wiki provides **complete, production-ready documentation** for 9 design patterns across Creational, Structural, and Architectural categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
+This wiki provides **complete, production-ready documentation** for 13 design patterns across Creational, Structural, Behavioral, and Architectural categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
+
+**Fully Documented Patterns:**
+- ✅ **5 Creational Patterns** (Singleton, Factory, Builder, Prototype, ObjectPool)
+- ✅ **4 Structural Patterns** (Adapter, Decorator, Composite, Proxy)
+- ✅ **4 Behavioral Patterns** (Observer, Strategy, State, Command)
+- ✅ **1 Architectural Pattern** (SAGA with 3 approaches)
 
 Perfect for:
 - 📚 Learning design patterns
@@ -426,10 +502,10 @@ Perfect for:
 - 💾 Code example library
 - 👥 Team knowledge base
 
-**Total Wiki Content: 13,000+ lines of comprehensive documentation**
+**Total Wiki Content: 15,000+ lines of comprehensive documentation**
 
 ---
 
-*Last Updated: April 10, 2026*  
-*Status: 9 Patterns Fully Documented | Ready for Behavioral Patterns Wiki*  
+*Last Updated: April 14, 2026*  
+*Status: 13 Patterns Fully Documented with Wiki*  
 *Repository: s2sys/dp101 | Branch: claude/csharp-design-patterns-iouoW*
