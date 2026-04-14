@@ -335,7 +335,7 @@ All design patterns have been documented with extensive explanations, code examp
 
 **Key Takeaway:** Separate operations from structures through double dispatch.
 
-## 🏗️ ARCHITECTURAL PATTERNS (14 patterns - 5,500+ lines)
+## 🏗️ ARCHITECTURAL PATTERNS (18 patterns - 8,500+ lines)
 
 ### 21. **MVC (Model-View-Controller)** `21-MVC.md`
 **Purpose:** Separate application into Model (business logic), View (presentation), and Controller (orchestration).
@@ -549,14 +549,82 @@ All design patterns have been documented with extensive explanations, code examp
 
 ---
 
+## 🔄 RESILIENCE & DISTRIBUTED SYSTEMS PATTERNS (4 patterns - 3,000+ lines)
+
+### 35. **Event Sourcing Pattern** `35-EventSourcing.md`
+**Purpose:** Store the state of an entity as a sequence of state-changing events.
+
+**Coverage:**
+- Append-only event logs
+- Domain events (MoneyDepositedEvent, MoneyWithdrawnEvent)
+- Event replay and state reconstruction
+- Snapshots for performance optimization
+- Event projections for read models
+- Temporal queries (state at specific time)
+- Optimistic concurrency control
+
+**Key Takeaway:** Event Sourcing trades storage complexity for complete audit trails and temporal queries.
+
+---
+
+### 36. **Circuit Breaker Pattern** `36-CircuitBreaker.md`
+**Purpose:** Prevent cascading failures by failing fast and allowing recovery.
+
+**Coverage:**
+- Three states: Closed (normal), Open (failing), HalfOpen (testing)
+- Failure threshold detection
+- Automatic recovery testing
+- Integration with Retry pattern
+- Bulkhead pattern integration
+- Fallback implementations
+- Polly library for C# implementations
+
+**Key Takeaway:** Circuit Breaker fails fast and prevents cascading failures. Essential for production microservices.
+
+---
+
+### 37. **Microservices Architecture Pattern** `37-Microservices.md`
+**Purpose:** Decompose application into independently deployable, loosely coupled services.
+
+**Coverage:**
+- Service decomposition strategies
+- Synchronous communication (REST/HTTP)
+- Asynchronous communication (message queues)
+- API Gateway pattern
+- Message bus implementations
+- Service discovery (Consul)
+- Health checks and monitoring
+- Database per service pattern
+
+**Key Takeaway:** Microservices trade deployment and operational complexity for scalability, team independence, and fault isolation.
+
+---
+
+### 38. **API Gateway Pattern** `38-APIGateway.md`
+**Purpose:** Single entry point for all client requests to microservices.
+
+**Coverage:**
+- HTTP routing and path rewriting
+- Centralized authentication and authorization
+- Rate limiting and throttling
+- Load balancing across instances
+- Request/response transformation
+- Compositional gateways (BFF pattern)
+- Cross-cutting concerns (logging, monitoring, circuit breaking)
+- Service abstraction and versioning
+
+**Key Takeaway:** API Gateway centralizes cross-cutting concerns and provides single entry point to microservices.
+
+---
+
 ## 📊 Documentation Statistics
 
 ### Lines of Documentation
-- **Total Wiki Content:** 25,000+ lines
+- **Total Wiki Content:** 28,000+ lines
 - **Creational Patterns:** 5,000+ lines (5 patterns)
 - **Structural Patterns:** 4,000+ lines (4 patterns)
 - **Behavioral Patterns:** 5,000+ lines (11 patterns)
-- **Architectural Patterns:** 5,500+ lines (14 patterns)
+- **Architectural Patterns:** 8,500+ lines (18 patterns)
 - **SOLID Principles:** 2,500+ lines (5 principles)
 
 ### Coverage per Pattern
@@ -615,7 +683,11 @@ docs/wiki/
 │   ├── 31-SolidOCP.md              # Open/Closed Principle
 │   ├── 32-SolidLSP.md              # Liskov Substitution Principle
 │   ├── 33-SolidISP.md              # Interface Segregation Principle
-│   └── 34-SolidDIP.md              # Dependency Inversion Principle
+│   ├── 34-SolidDIP.md              # Dependency Inversion Principle
+│   ├── 35-EventSourcing.md         # Event Sourcing pattern
+│   ├── 36-CircuitBreaker.md        # Circuit Breaker resilience pattern
+│   ├── 37-Microservices.md         # Microservices Architecture
+│   └── 38-APIGateway.md            # API Gateway pattern
 └── diagrams/                        # Architecture diagrams
 ```
 
@@ -743,27 +815,27 @@ docs/wiki/
 
 ## 🏆 Summary
 
-This wiki provides **complete, production-ready documentation** for 39 design patterns and architectural principles across all major categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
+This wiki provides **complete, production-ready documentation** for 43 design patterns and architectural principles across all major categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
 
 **Fully Documented Patterns:**
 - ✅ **5 Creational Patterns** (Singleton, Factory, Builder, Prototype, ObjectPool)
 - ✅ **4 Structural Patterns** (Adapter, Decorator, Composite, Proxy)
 - ✅ **11 Behavioral Patterns** (Observer, Strategy, State, Command, Chain of Responsibility, Interpreter, Iterator, Mediator, Memento, Template Method, Visitor)
-- ✅ **14 Architectural Patterns** (MVC, MVVM, MVP, CQRS, Repository, Unit of Work, Clean Architecture, DDD, Hexagonal Architecture)
-- ✅ **5 SOLID Principles** (SRP, OCP, LSP, ISP, DIP)
+- ✅ **18 Architectural Patterns** (MVC, MVVM, MVP, CQRS, Repository, Unit of Work, Clean Architecture, DDD, Hexagonal Architecture, SOLID Principles x5, Event Sourcing, Circuit Breaker, Microservices, API Gateway)
 
 Perfect for:
 - 📚 Learning design patterns
-- 🎓 Interview preparation (especially SOLID for Senior positions)
+- 🎓 Interview preparation (System Design, Architecture, Senior roles)
 - 🏗️ Architecture reference
-- 💾 Code example library
+- 💾 Code example library (500+ code examples)
 - 👥 Team knowledge base
+- 🔧 Production implementation guide
 
-**Total Wiki Content: 25,000+ lines of comprehensive documentation**
+**Total Wiki Content: 28,000+ lines of comprehensive documentation**
 
 ---
 
 *Last Updated: April 14, 2026*  
-*Status: 39 Patterns + SOLID Principles Fully Documented with Wiki*  
-*Progress: 39% of ~99 patterns covered (Creational, Structural, Behavioral, Architectural + SOLID complete!)*  
+*Status: 43 Patterns Fully Documented with Wiki*  
+*Progress: 43% of ~99 patterns covered (All core categories complete + advanced resilience patterns!)*  
 *Repository: s2sys/dp101 | Branch: claude/csharp-design-patterns-iouoW*
