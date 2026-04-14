@@ -335,43 +335,150 @@ All design patterns have been documented with extensive explanations, code examp
 
 **Key Takeaway:** Separate operations from structures through double dispatch.
 
-## 🏗️ ARCHITECTURAL PATTERNS (Documented)
+## 🏗️ ARCHITECTURAL PATTERNS (9 patterns - 3,000+ lines)
 
-### 26. **SAGA Pattern** `26-SAGA-Pattern.md`
-**Purpose:** Manage distributed transactions across microservices.
+### 21. **MVC (Model-View-Controller)** `21-MVC.md`
+**Purpose:** Separate application into Model (business logic), View (presentation), and Controller (orchestration).
 
 **Coverage:**
-- Complete problem statement
-- **Orchestration-based SAGA**
-  - Central coordinator
-  - Explicit workflow
-  - Synchronous communication
-- **Choreography-based SAGA**
-  - Event-driven
-  - Decentralized
-  - Asynchronous communication
-- **Compensating Transactions**
-  - Distributed rollback
-  - Idempotency requirements
-  - Recovery mechanisms
-- Comparison matrix
-- Decision criteria for each approach
-- Real-world e-commerce example
-- Implementation patterns
-- Tools and frameworks
+- ASP.NET MVC web application
+- WinForms desktop application
+- E-commerce example
+- Request-response flow diagram
+- Separation of concerns benefits
+- Testability improvements
 
-**Key Takeaway:** Orchestration for simple sequential flows. Choreography for loose coupling and high availability.
+**Key Takeaway:** MVC separates concerns into Model (logic), View (UI), and Controller (orchestration).
+
+---
+
+### 22. **MVVM (Model-View-ViewModel)** `22-MVVM.md`
+**Purpose:** Separate UI from business logic with automatic data binding and test-driven development.
+
+**Coverage:**
+- WPF applications with RelayCommand
+- Angular MVVM with data binding
+- Xamarin mobile applications
+- INotifyPropertyChanged interface
+- Two-way data binding
+- ViewModel state management
+
+**Key Takeaway:** MVVM uses data binding and ViewModels to separate UI state from business logic.
+
+---
+
+### 23. **MVP (Model-View-Presenter)** `23-MVP.md`
+**Purpose:** Passive View with active Presenter handling all UI logic and state.
+
+**Coverage:**
+- Windows Forms implementation
+- Passive View pattern (no logic)
+- Active Presenter (orchestration)
+- Mock testing strategies
+- Comparison with MVC and MVVM
+
+**Key Takeaway:** MVP achieves highest testability through passive View and presenter-controlled logic.
+
+---
+
+### 24. **CQRS (Command Query Responsibility Segregation)** `24-CQRS.md`
+**Purpose:** Separate read and write operations with independent models optimized for each.
+
+**Coverage:**
+- UserCommandService for writes
+- UserQueryService for reads
+- UserEventProjector keeping models in sync
+- Event-based synchronization
+- Performance optimization
+
+**Key Takeaway:** CQRS separates read (Query) and write (Command) models for scalability and optimization.
+
+---
+
+### 25. **Repository Pattern** `25-Repository.md`
+**Purpose:** Abstract data access through repository interface, enabling testability and flexibility.
+
+**Coverage:**
+- Generic repository with IRepository<T>
+- Entity Framework Core implementation
+- MongoDB repository implementation
+- Mock repository for testing
+- Repository vs. DbContext comparison
+
+**Key Takeaway:** Repository abstracts data access, enabling testability and data source flexibility.
+
+---
+
+### 26. **Unit of Work Pattern** `26-UnitOfWork.md`
+**Purpose:** Coordinate multiple repositories in a single transaction for consistency.
+
+**Coverage:**
+- Transaction coordination
+- EF Core implementation
+- Change tracking
+- SaveChanges() and Rollback()
+- Bank transfer example
+- Mock Unit of Work for testing
+
+**Key Takeaway:** Unit of Work ensures all repository changes commit together or rollback together.
+
+---
+
+### 27. **Clean Architecture** `27-CleanArchitecture.md`
+**Purpose:** Layered architecture with dependency inversion keeping domain logic independent.
+
+**Coverage:**
+- Four layers: Presentation, Application, Domain, Infrastructure
+- Dependency inversion principle
+- Order domain example
+- CreateOrderService implementation
+- Project structure and organization
+- Dependency injection setup
+
+**Key Takeaway:** Clean Architecture inverts dependencies so they point toward domain logic.
+
+---
+
+### 28. **Domain-Driven Design (DDD)** `28-DDD.md`
+**Purpose:** Design around business domain with aggregates, entities, value objects, and domain events.
+
+**Coverage:**
+- Ubiquitous language
+- Aggregates (Order aggregate root)
+- Entities (OrderLine) and Value Objects (Quantity, Money)
+- Domain events (OrderConfirmedEvent)
+- Bounded contexts with anti-corruption layers
+- Repository pattern for aggregates
+- Order Management Domain example
+
+**Key Takeaway:** DDD aligns software with business domain through language, aggregates, and bounded contexts.
+
+---
+
+### 29. **Hexagonal Architecture (Ports & Adapters)** `29-HexagonalArchitecture.md`
+**Purpose:** Isolate application core from external systems through ports and adapters.
+
+**Coverage:**
+- Core application independence
+- Primary (driving) adapters: HTTP, CLI, Message queue
+- Secondary (driven) adapters: Database, Email, Payment
+- Port definitions (IOrderStore, IMailSender, IPaymentProcessor)
+- Adapter implementations (SQL, SMTP, Stripe, Mocks)
+- OrderService with OrderController example
+- Dependency injection for testing vs. production
+
+**Key Takeaway:** Hexagonal Architecture inverts dependencies so core logic is free from external concerns.
 
 ---
 
 ## 📊 Documentation Statistics
 
 ### Lines of Documentation
-- **Total Wiki Content:** 19,000+ lines
+- **Total Wiki Content:** 22,000+ lines
 - **Creational Patterns:** 5,000+ lines (5 patterns)
 - **Structural Patterns:** 4,000+ lines (4 patterns)
 - **Behavioral Patterns:** 5,000+ lines (11 patterns)
-- **Architectural Patterns:** 5,000+ lines (SAGA + others)
+- **Architectural Patterns:** 3,000+ lines (9 patterns)
 
 ### Coverage per Pattern
 - **Problem Statement:** ✅ Every pattern
@@ -416,8 +523,15 @@ docs/wiki/
 │   ├── 19-TemplateMethod.md        # Algorithm skeleton
 │   └── 20-Visitor.md               # Structure operations
 ├── Architectural/
-│   ├── 26-SAGA-Pattern.md          # Distributed transactions
-│   └── [More patterns ready]
+│   ├── 21-MVC.md                   # Model-View-Controller
+│   ├── 22-MVVM.md                  # Model-View-ViewModel
+│   ├── 23-MVP.md                   # Model-View-Presenter
+│   ├── 24-CQRS.md                  # Command Query Responsibility Segregation
+│   ├── 25-Repository.md            # Repository pattern
+│   ├── 26-UnitOfWork.md            # Unit of Work pattern
+│   ├── 27-CleanArchitecture.md     # Clean Architecture
+│   ├── 28-DDD.md                   # Domain-Driven Design
+│   └── 29-HexagonalArchitecture.md # Hexagonal Architecture (Ports & Adapters)
 └── diagrams/                        # Architecture diagrams
 ```
 
@@ -545,13 +659,13 @@ docs/wiki/
 
 ## 🏆 Summary
 
-This wiki provides **complete, production-ready documentation** for 20 design patterns across Creational, Structural, Behavioral, and Architectural categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
+This wiki provides **complete, production-ready documentation** for 29 design patterns across Creational, Structural, Behavioral, and Architectural categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
 
 **Fully Documented Patterns:**
 - ✅ **5 Creational Patterns** (Singleton, Factory, Builder, Prototype, ObjectPool)
 - ✅ **4 Structural Patterns** (Adapter, Decorator, Composite, Proxy)
 - ✅ **11 Behavioral Patterns** (Observer, Strategy, State, Command, Chain of Responsibility, Interpreter, Iterator, Mediator, Memento, Template Method, Visitor)
-- ✅ **1 Architectural Pattern** (SAGA with 3 approaches)
+- ✅ **9 Architectural Patterns** (MVC, MVVM, MVP, CQRS, Repository, Unit of Work, Clean Architecture, DDD, Hexagonal Architecture)
 
 Perfect for:
 - 📚 Learning design patterns
@@ -560,11 +674,11 @@ Perfect for:
 - 💾 Code example library
 - 👥 Team knowledge base
 
-**Total Wiki Content: 19,000+ lines of comprehensive documentation**
+**Total Wiki Content: 22,000+ lines of comprehensive documentation**
 
 ---
 
 *Last Updated: April 14, 2026*  
-*Status: 20 Patterns Fully Documented with Wiki*  
-*Progress: 20% of ~99 patterns covered (Behavioral section complete!)*  
+*Status: 29 Patterns Fully Documented with Wiki*  
+*Progress: 29% of ~99 patterns covered (Behavioral + Priority Architectural patterns complete!)*  
 *Repository: s2sys/dp101 | Branch: claude/csharp-design-patterns-iouoW*
