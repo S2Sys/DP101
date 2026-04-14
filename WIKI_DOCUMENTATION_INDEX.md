@@ -203,27 +203,17 @@ All design patterns have been documented with extensive explanations, code examp
 
 ---
 
-## ✅ BEHAVIORAL PATTERNS (4 patterns - 2,000+ lines)
+## ✅ BEHAVIORAL PATTERNS (11 patterns - 5,000+ lines)
 
 ### 10. **Observer Pattern** `10-Observer.md`
 **Purpose:** Define a one-to-many dependency so that when one object changes state, all dependents are notified.
 
 **Coverage:**
-- 5 implementation approaches:
-  - Simple Observer Pattern with Subject
-  - Stock Price Observer with portfolio holdings
-  - Weather Station with multiple displays
-  - .NET Events Pattern (C# native)
-  - Property Change Notifier
-- Real-world examples:
-  - GUI event handling
-  - Data binding in UI frameworks
-  - MVC pattern notifications
+- 5 implementation approaches
+- GUI events, data binding, MVC patterns
 - Observer vs. Pub-Sub comparison
-- Memory leak prevention
-- Exception handling in notifications
 
-**Key Takeaway:** Loose coupling through automatic notifications when state changes.
+**Key Takeaway:** Loose coupling through automatic notifications.
 
 ---
 
@@ -231,17 +221,11 @@ All design patterns have been documented with extensive explanations, code examp
 **Purpose:** Define a family of algorithms, encapsulate each one, and make them interchangeable.
 
 **Coverage:**
-- 4 algorithm family examples:
-  - Payment processing strategies (Credit Card, PayPal, Crypto)
-  - Sorting algorithms (Bubble, Quick, Merge)
-  - Compression strategies (GZIP, RAR, ZIP)
-  - Formatting strategies (Case, Reverse)
+- 4 algorithm families (Payment, Sorting, Compression, Formatting)
 - Runtime algorithm selection
-- Eliminates complex conditional logic
-- Strategy vs. State pattern comparison
-- Real-world use cases
+- Eliminates conditional logic
 
-**Key Takeaway:** Select algorithm at runtime without modifying client code.
+**Key Takeaway:** Select algorithm at runtime without modification.
 
 ---
 
@@ -249,18 +233,11 @@ All design patterns have been documented with extensive explanations, code examp
 **Purpose:** Allow an object to alter its behavior when its internal state changes.
 
 **Coverage:**
-- 5 state machine examples:
-  - Traffic light (Red, Yellow, Green)
-  - TCP connection states (Closed, Established, Listen)
-  - Media player (Playing, Paused, Stopped)
-  - Order processing (New, Validated, Processing, Shipped)
-  - Document workflow (Draft, Review, Published, Archived)
+- 5 state machines (Traffic light, TCP, Media player, Order, Document)
 - State-dependent behavior encapsulation
-- Eliminates massive if-else chains
-- Explicit state transitions
-- State vs. Strategy pattern comparison
+- Eliminates if-else chains
 
-**Key Takeaway:** Encapsulate state-dependent behavior in separate state classes.
+**Key Takeaway:** Encapsulate state-dependent behavior in state classes.
 
 ---
 
@@ -268,21 +245,95 @@ All design patterns have been documented with extensive explanations, code examp
 **Purpose:** Encapsulate a request as an object, allowing parameterization with different requests.
 
 **Coverage:**
-- 6 implementation approaches:
-  - Light control with undo/redo
-  - Document editor with full history
-  - Database transactions with rollback
-  - Macro/batch command composition
-  - Command queue for deferred execution
-  - Async command execution
+- 6 implementations (Light, Document, Database, Macro, Queue, Async)
 - Undo/redo functionality
-- Command queuing and logging
 - Transaction support with rollback
-- Macro command composition
 
 **Key Takeaway:** Decouple sender from receiver through command objects.
 
 ---
+
+### 14. **Chain of Responsibility Pattern** `14-ChainOfResponsibility.md`
+**Purpose:** Avoid coupling the sender to its receiver by giving multiple objects a chance to handle the request.
+
+**Coverage:**
+- 5 implementations (Logging, HTTP middleware, Approvals, Events, Support)
+- Request distribution along handler chain
+- Default handler for unhandled requests
+
+**Key Takeaway:** Pass requests along a chain until one handles it.
+
+---
+
+### 15. **Interpreter Pattern** `15-Interpreter.md`
+**Purpose:** Define a representation for a grammar and an interpreter to interpret sentences in the language.
+
+**Coverage:**
+- 5 implementations (Math expressions, Boolean logic, SQL, Configuration, Regex)
+- Abstract syntax tree (AST) building and evaluation
+- Grammar definition and parsing
+
+**Key Takeaway:** Define grammar representation and evaluate expressions.
+
+---
+
+### 16. **Iterator Pattern** `16-Iterator.md`
+**Purpose:** Provide a way to access elements of an aggregate object sequentially without exposing its representation.
+
+**Coverage:**
+- 5 implementations (Simple, Bidirectional, Tree traversal, Filtering, Reverse)
+- Multiple iteration strategies
+- Encapsulation of traversal logic
+
+**Key Takeaway:** Sequential access without exposing collection structure.
+
+---
+
+### 17. **Mediator Pattern** `17-Mediator.md`
+**Purpose:** Define an object that encapsulates how a set of objects interact. Promote loose coupling.
+
+**Coverage:**
+- 5 implementations (Chat room, Air traffic control, Dialog, Team, Moderated chat)
+- Central coordination of interactions
+- Decoupling colleagues
+
+**Key Takeaway:** Centralize object interactions through mediator.
+
+---
+
+### 18. **Memento Pattern** `18-Memento.md`
+**Purpose:** Capture an object's internal state without violating encapsulation, allowing restoration later.
+
+**Coverage:**
+- 5 implementations (Text editor undo, Game saves, Database transactions, Configuration, Drawing)
+- State capture and restoration
+- Undo/redo with history stacks
+
+**Key Takeaway:** Capture state for later restoration without exposing internals.
+
+---
+
+### 19. **Template Method Pattern** `19-TemplateMethod.md`
+**Purpose:** Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.
+
+**Coverage:**
+- 5 implementations (Beverage, Data processing, Reports, Authentication, Game actions)
+- Algorithm structure with customizable steps
+- Hook methods for optional overrides
+
+**Key Takeaway:** Define algorithm structure, subclasses customize steps.
+
+---
+
+### 20. **Visitor Pattern** `20-Visitor.md`
+**Purpose:** Represent an operation to be performed on elements of an object structure without changing element classes.
+
+**Coverage:**
+- 5 implementations (Shape calculations, Document export, File system, Reports)
+- Double dispatch polymorphism
+- Operations on complex structures
+
+**Key Takeaway:** Separate operations from structures through double dispatch.
 
 ## 🏗️ ARCHITECTURAL PATTERNS (Documented)
 
@@ -316,11 +367,11 @@ All design patterns have been documented with extensive explanations, code examp
 ## 📊 Documentation Statistics
 
 ### Lines of Documentation
-- **Total Wiki Content:** 15,000+ lines
+- **Total Wiki Content:** 19,000+ lines
 - **Creational Patterns:** 5,000+ lines (5 patterns)
 - **Structural Patterns:** 4,000+ lines (4 patterns)
-- **Behavioral Patterns:** 2,000+ lines (4 patterns)
-- **Architectural Patterns:** 4,000+ lines (SAGA + others)
+- **Behavioral Patterns:** 5,000+ lines (11 patterns)
+- **Architectural Patterns:** 5,000+ lines (SAGA + others)
 
 ### Coverage per Pattern
 - **Problem Statement:** ✅ Every pattern
@@ -353,10 +404,17 @@ docs/wiki/
 │   ├── 08-Composite.md             # Tree hierarchies
 │   └── 09-Proxy.md                 # Access control
 ├── Behavioral/
-│   ├── 10-Observer.md              # Event handling [READY]
-│   ├── 11-Strategy.md              # Algorithm selection [READY]
-│   ├── 12-State.md                 # State-based behavior [READY]
-│   └── 13-Command.md               # Request encapsulation [READY]
+│   ├── 10-Observer.md              # Event notifications
+│   ├── 11-Strategy.md              # Algorithm selection
+│   ├── 12-State.md                 # State-based behavior
+│   ├── 13-Command.md               # Request encapsulation
+│   ├── 14-ChainOfResponsibility.md # Request chain handling
+│   ├── 15-Interpreter.md           # Grammar definition
+│   ├── 16-Iterator.md              # Sequential access
+│   ├── 17-Mediator.md              # Object coordination
+│   ├── 18-Memento.md               # State restoration
+│   ├── 19-TemplateMethod.md        # Algorithm skeleton
+│   └── 20-Visitor.md               # Structure operations
 ├── Architectural/
 │   ├── 26-SAGA-Pattern.md          # Distributed transactions
 │   └── [More patterns ready]
@@ -487,12 +545,12 @@ docs/wiki/
 
 ## 🏆 Summary
 
-This wiki provides **complete, production-ready documentation** for 13 design patterns across Creational, Structural, Behavioral, and Architectural categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
+This wiki provides **complete, production-ready documentation** for 20 design patterns across Creational, Structural, Behavioral, and Architectural categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
 
 **Fully Documented Patterns:**
 - ✅ **5 Creational Patterns** (Singleton, Factory, Builder, Prototype, ObjectPool)
 - ✅ **4 Structural Patterns** (Adapter, Decorator, Composite, Proxy)
-- ✅ **4 Behavioral Patterns** (Observer, Strategy, State, Command)
+- ✅ **11 Behavioral Patterns** (Observer, Strategy, State, Command, Chain of Responsibility, Interpreter, Iterator, Mediator, Memento, Template Method, Visitor)
 - ✅ **1 Architectural Pattern** (SAGA with 3 approaches)
 
 Perfect for:
@@ -502,10 +560,11 @@ Perfect for:
 - 💾 Code example library
 - 👥 Team knowledge base
 
-**Total Wiki Content: 15,000+ lines of comprehensive documentation**
+**Total Wiki Content: 19,000+ lines of comprehensive documentation**
 
 ---
 
 *Last Updated: April 14, 2026*  
-*Status: 13 Patterns Fully Documented with Wiki*  
+*Status: 20 Patterns Fully Documented with Wiki*  
+*Progress: 20% of ~99 patterns covered (Behavioral section complete!)*  
 *Repository: s2sys/dp101 | Branch: claude/csharp-design-patterns-iouoW*
