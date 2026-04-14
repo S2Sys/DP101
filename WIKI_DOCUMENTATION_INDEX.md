@@ -335,7 +335,7 @@ All design patterns have been documented with extensive explanations, code examp
 
 **Key Takeaway:** Separate operations from structures through double dispatch.
 
-## 🏗️ ARCHITECTURAL PATTERNS (9 patterns - 3,000+ lines)
+## 🏗️ ARCHITECTURAL PATTERNS (14 patterns - 5,500+ lines)
 
 ### 21. **MVC (Model-View-Controller)** `21-MVC.md`
 **Purpose:** Separate application into Model (business logic), View (presentation), and Controller (orchestration).
@@ -471,14 +471,93 @@ All design patterns have been documented with extensive explanations, code examp
 
 ---
 
+## 🎯 SOLID PRINCIPLES (5 principles - 2,500+ lines)
+
+### 30. **Single Responsibility Principle (SRP)** `30-SolidSRP.md`
+**Purpose:** A class should have one and only one reason to change.
+
+**Coverage:**
+- Identifying multiple responsibilities in a class
+- Report generation example (separated formatter)
+- Authentication service (separated concerns)
+- User registration (separated validator, repository, email, logger)
+- Responsibility identification techniques
+- God class anti-pattern
+
+**Key Takeaway:** One class, one reason to change. Extract responsibilities into separate, focused classes.
+
+---
+
+### 31. **Open/Closed Principle (OCP)** `31-SolidOCP.md`
+**Purpose:** Software should be open for extension but closed for modification.
+
+**Coverage:**
+- Strategy pattern for payment processing
+- Template method pattern for reports
+- Decorator pattern for data processing
+- Observer pattern for event handling
+- Avoiding if/else modification patterns
+- Polymorphism enabling extension
+
+**Key Takeaway:** Extend through abstraction, not modification. Use interfaces and inheritance to allow new functionality.
+
+---
+
+### 32. **Liskov Substitution Principle (LSP)** `32-SolidLSP.md`
+**Purpose:** Subtypes must be substitutable for their base types without breaking the application.
+
+**Coverage:**
+- Bird inheritance hierarchy (Flying vs Non-Flying birds)
+- Rectangle-Square problem (invalid inheritance)
+- Collection contract violations
+- Payment processor contract enforcement
+- Preconditions and postconditions
+- Type checking as anti-pattern
+
+**Key Takeaway:** Subclasses must respect their parent's contract. Type checking usually indicates an LSP violation.
+
+---
+
+### 33. **Interface Segregation Principle (ISP)** `33-SolidISP.md`
+**Purpose:** Clients should not be forced to depend on interfaces they do not use.
+
+**Coverage:**
+- Fat interface elimination (13+ method IEmployee)
+- Role-based interface design (IReader, IWriter, ICloseable)
+- Service interface segregation
+- Adapter pattern for legacy interfaces
+- Multiple interface implementation
+- NotImplementedException as anti-pattern
+
+**Key Takeaway:** Design specific interfaces for specific client needs. Implement only needed interfaces.
+
+---
+
+### 34. **Dependency Inversion Principle (DIP)** `34-SolidDIP.md`
+**Purpose:** Depend on abstractions, not concrete implementations.
+
+**Coverage:**
+- Constructor injection examples
+- Property injection approaches
+- Method injection techniques
+- Service Locator pattern (anti-pattern)
+- Dependency Injection containers
+- PaymentProcessor with mock implementations
+- Mock strategies for testing
+
+**Key Takeaway:** Depend on interfaces/abstractions, inject dependencies. Never create dependencies directly in high-level code.
+
+---
+
 ## 📊 Documentation Statistics
 
 ### Lines of Documentation
-- **Total Wiki Content:** 22,000+ lines
+- **Total Wiki Content:** 25,000+ lines
 - **Creational Patterns:** 5,000+ lines (5 patterns)
 - **Structural Patterns:** 4,000+ lines (4 patterns)
 - **Behavioral Patterns:** 5,000+ lines (11 patterns)
-- **Architectural Patterns:** 3,000+ lines (9 patterns)
+- **Architectural Patterns:** 5,500+ lines (14 patterns)
+- **SOLID Principles:** 2,500+ lines (5 principles)
 
 ### Coverage per Pattern
 - **Problem Statement:** ✅ Every pattern
@@ -531,7 +610,12 @@ docs/wiki/
 │   ├── 26-UnitOfWork.md            # Unit of Work pattern
 │   ├── 27-CleanArchitecture.md     # Clean Architecture
 │   ├── 28-DDD.md                   # Domain-Driven Design
-│   └── 29-HexagonalArchitecture.md # Hexagonal Architecture (Ports & Adapters)
+│   ├── 29-HexagonalArchitecture.md # Hexagonal Architecture (Ports & Adapters)
+│   ├── 30-SolidSRP.md              # Single Responsibility Principle
+│   ├── 31-SolidOCP.md              # Open/Closed Principle
+│   ├── 32-SolidLSP.md              # Liskov Substitution Principle
+│   ├── 33-SolidISP.md              # Interface Segregation Principle
+│   └── 34-SolidDIP.md              # Dependency Inversion Principle
 └── diagrams/                        # Architecture diagrams
 ```
 
@@ -659,26 +743,27 @@ docs/wiki/
 
 ## 🏆 Summary
 
-This wiki provides **complete, production-ready documentation** for 29 design patterns across Creational, Structural, Behavioral, and Architectural categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
+This wiki provides **complete, production-ready documentation** for 39 design patterns and architectural principles across all major categories. Each pattern includes problem statements, multiple solutions, code examples, real-world applications, and interview preparation materials.
 
 **Fully Documented Patterns:**
 - ✅ **5 Creational Patterns** (Singleton, Factory, Builder, Prototype, ObjectPool)
 - ✅ **4 Structural Patterns** (Adapter, Decorator, Composite, Proxy)
 - ✅ **11 Behavioral Patterns** (Observer, Strategy, State, Command, Chain of Responsibility, Interpreter, Iterator, Mediator, Memento, Template Method, Visitor)
-- ✅ **9 Architectural Patterns** (MVC, MVVM, MVP, CQRS, Repository, Unit of Work, Clean Architecture, DDD, Hexagonal Architecture)
+- ✅ **14 Architectural Patterns** (MVC, MVVM, MVP, CQRS, Repository, Unit of Work, Clean Architecture, DDD, Hexagonal Architecture)
+- ✅ **5 SOLID Principles** (SRP, OCP, LSP, ISP, DIP)
 
 Perfect for:
 - 📚 Learning design patterns
-- 🎓 Interview preparation
+- 🎓 Interview preparation (especially SOLID for Senior positions)
 - 🏗️ Architecture reference
 - 💾 Code example library
 - 👥 Team knowledge base
 
-**Total Wiki Content: 22,000+ lines of comprehensive documentation**
+**Total Wiki Content: 25,000+ lines of comprehensive documentation**
 
 ---
 
 *Last Updated: April 14, 2026*  
-*Status: 29 Patterns Fully Documented with Wiki*  
-*Progress: 29% of ~99 patterns covered (Behavioral + Priority Architectural patterns complete!)*  
+*Status: 39 Patterns + SOLID Principles Fully Documented with Wiki*  
+*Progress: 39% of ~99 patterns covered (Creational, Structural, Behavioral, Architectural + SOLID complete!)*  
 *Repository: s2sys/dp101 | Branch: claude/csharp-design-patterns-iouoW*
